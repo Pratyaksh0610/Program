@@ -1,60 +1,58 @@
-#include <iostream>
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
-int main()
-{
- int a[10][10], b[10][10], mult[10][10], r1, c1, r2, c2, i, j, k;
 
- cout << "Enter rows and columns for first matrix: ";
- cin >> r1 >> c1;
- cout << "Enter rows and columns for second matrix: ";
- cin >> r2 >> c2;
- cout<<"CHanges";
+typedef long long ll;
+typedef __gnu_pbds::tree<int, __gnu_pbds::null_type, less<int>,
+                         __gnu_pbds::rb_tree_tag,
+                         __gnu_pbds::tree_order_statistics_node_update>
+    ordered_set; // find_by_order , order_of_key, can change less to less_equal
+                 // to great
+typedef pair<int, int> pi;
+typedef vector<ll> vl;
+typedef vector<int> vi;
+typedef priority_queue<ll, vector<ll>, greater<ll>> minpq;
+typedef priority_queue<ll> maxpq;
 
- if (c1!=r2)
- {
- cout<<"Cant be Multiplied";
- return 0;
+#define all(x) x.begin(), x.end()
+#define pb(x) push_back(x)
+#define rsrt(x) sort(x.rbegin(), x.rend())
+#define srt(x) sort(x.begin(), x.end())
+#define fr(i, a, n) for (int i = a; i < n; i++)
+
+const int m = 1e9 + 7;
+
+/*class p{
+public:
+int a,b;
+p(int x,int y){
+a=x,b=y;
 }
+p(){}
+};*/
 
- // Storing elements of first matrix.
- cout << endl << "Enter elements of matrix 1:" << endl;
- for(i = 0; i < r1; ++i)
- for(j = 0; j < c1; ++j)
- {
- cout << "Enter element a" << i + 1 << j + 1 << " : ";
- cin >> a[i][j];
- }
+/*class compa{
+public:
+bool operator()(p &t1,p &t2)
+if(t1.b>t2.b){return true;}
+return false;
+};*/
 
- // Storing elements of second matrix.
- cout << endl << "Enter elements of matrix 2:" << endl;
- for(i = 0; i < r2; ++i)
- for(j = 0; j < c2; ++j)
- {
- cout << "Enter element b" << i + 1 << j + 1 << " : ";
- cin >> b[i][j];
- }
+void fun() {}
 
+int main() {
 
- // Multiplying matrix a and b and storing in array mult.
- for(i = 0; i < r1; ++i)
- for(j = 0; j < c2; ++j)
- {
- mult[i][j]=0;
- for(k = 0; k < c1; ++k)
- {
- mult[i][j] += a[i][k] * b[k][j];
- }
- }
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
- // Displaying the multiplication of two matrix.
- cout << endl << "Output Matrix: " << endl;
- for(i = 0; i < r1; ++i)
- for(j = 0; j < c2; ++j)
- {
- cout << " " << mult[i][j];
- if(j == c2-1)
- cout << endl;
- }
+  for (int i = 1; i < 1e5; i++) {
+    int mod = 1e8 + 7;
+    ll value = rand();
+    ll ans = (value * (ll)(1e9)) % mod;
+    cout << ans << ",";
+  }
 
- return 0;
+  return 0;
 }
